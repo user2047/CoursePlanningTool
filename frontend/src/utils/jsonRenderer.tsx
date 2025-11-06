@@ -1,5 +1,5 @@
 import React from "react";
-import SectionAccordion from "../screens/SyllabusView/BasicInformation/SectionAccordion";
+import SectionAccordion from "../components/screens/CoursePage/SyllabusView/BasicInformation/SectionAccordion";
 import CheckboxGroup from "../components/SyllabusComponents/CheckboxGroup";
 import Alert from "../components/SyllabusComponents/Alert";
 import Information from "../components/SyllabusComponents/Information";
@@ -34,9 +34,12 @@ export function jsonRenderComponent(
 ): React.ReactNode {
     switch (component.type) {
         case "Accordion":
+            // Note: This is a compatibility fix - SectionAccordion expects BasicInfoData fields
+            // but jsonRenderer uses JsonComponent. For now, providing empty fields array.
             return (
                 <SectionAccordion
                     sectionName={component.title || ""}
+                    fields={[]}  
                     formData={formData}
                     onFieldChange={onChange}
                 >
@@ -108,7 +111,7 @@ export function jsonRenderComponent(
                         id={component.id}
                         data={component.data || []}
                         horizontal={component.horizontal ?? true}
-                        label={component.label}
+                        label={component.label || ""}
                         value={currentValue}
                         onChange={(vals: string[]) =>
                             onChange(fieldId, vals.join(","))

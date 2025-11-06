@@ -14,7 +14,8 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [user, setUser] = useState<User | null>(null);    
+    // DEVELOPMENT: Start with a default user to bypass login
+    const [user, setUser] = useState<User | null>({ user: "dev@example.com", name: "Development User" });    
     return (
         <AuthContext.Provider value={{ user, setUser }}>
             {children}

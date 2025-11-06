@@ -1,32 +1,35 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import SectionAccordion from "../screens/SyllabusView/BasicInformation/SectionAccordion";
-import { JsonComponent } from "../utils/jsonRenderer";
+import SectionAccordion from "../components/screens/CoursePage/SyllabusView/BasicInformation/SectionAccordion";
+import { BasicInfoData } from "../utils/loadBasicInfoFields";
 
-const mockContent: JsonComponent[] = [
+const mockFields: BasicInfoData[] = [
   {
-    type: "text",
-    id: "Name",
+    section: "Basic Info",
+    row: 1,
+    layoutRow: 1,
     label: "Name",
+    type: "text",
     placeholder: "Enter name",
     required: false,
-    className: "",
   },
   {
-    type: "textarea",
-    id: "Description",
+    section: "Basic Info", 
+    row: 2,
+    layoutRow: 1,
     label: "Description",
+    type: "textarea",
     placeholder: "Enter description",
     required: false,
-    className: "",
   },
   {
-    type: "textarea",
-    id: "Additional Information",
+    section: "Basic Info",
+    row: 3,
+    layoutRow: 1,
     label: "Additional Information",
+    type: "textarea",
     placeholder: "Enter additional information",
     required: false,
-    className: "",
   },
 ];
 
@@ -34,7 +37,7 @@ test("renders SectionAccordion with grouped rows and fields", () => {
   render(
     <SectionAccordion
       sectionName="Basic Info"
-      content={mockContent}   
+      fields={mockFields}   
       formData={{
         Name: "Alice",
         Description: "Some desc",

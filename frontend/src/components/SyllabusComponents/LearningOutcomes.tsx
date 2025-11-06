@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import ContentCardSet, { CardData } from '../../components/SyllabusComponents/ContentCardSet';
+import ContentCardSet, { CardData } from './SyllabusPageComponents/ContentCardSet';
 import { useNavigate, useLocation } from "react-router-dom";
-import { handleBack, handleNext } from "../../components/Button/ButtonLogic";
+import { handleBack, handleNext } from "../Button/ButtonLogic";
 import AppLayout from "../../SyllabusLayout/SyllabusPageHeader";
 import { 
     createPreviewHandler,
     createSaveAndExitHandler,
     createSaveHandler
 } from "../../utils/handlers/formHandlersFactory";
-import RedirectingModal from "../../components/RedirectingModal/RedirectingModal";
+import RedirectingModal from "../RedirectingModal/RedirectingModal";
 
 /**
  * @function LearningOutcomes

@@ -19,15 +19,15 @@ import GradeTable from "../components/Tables/gradeTable"
 import TestSyllabusPage from "../screens/TestingPages/TestSyllabusPage";
 
 //Application Endpoints
-import Overview from "../screens/SyllabusView/Overview/Overview";
-import Assessment from "../screens/SyllabusView/Assessment";
-import BasicInfo from "../screens/SyllabusView/BasicInformation/BasicInfo";
-import Description from "../screens/SyllabusView/Description/Description";
-import LearningOutcomes from "../screens/SyllabusView/Learning Outcomes/LearningOutcomes";
-import HIPs from "../screens/SyllabusView/HIPS/HIPs";
-import CourseSchedule from "../screens/SyllabusView/CourseSchedule";
-import LearningResources from "../screens/SyllabusView/LearningResources/LearningResources";
-import Checklist from "../screens/SyllabusView/Checklist";
+import Overview from "../components/screens/CoursePage/SyllabusView/Overview/Overview";
+import Assessment from "../components/screens/CoursePage/SyllabusView/Assessment";
+import BasicInfo from "../components/screens/CoursePage/SyllabusView/BasicInformation/BasicInfo";
+import Description from "../components/screens/CoursePage/SyllabusView/Description/Description";
+import LearningOutcomes from "../components/screens/CoursePage/SyllabusView/Learning Outcomes/LearningOutcomes";
+import HIPs from "../components/screens/CoursePage/SyllabusView/HIPS/HIPs";
+import CourseSchedule from "../components/screens/CoursePage/SyllabusView/CourseSchedule";
+import LearningResources from "../components/screens/CoursePage/SyllabusView/LearningResources/LearningResources";
+import Checklist from "../components/screens/CoursePage/SyllabusView/Checklist";
 import CoursePage from "../screens/CoursePage/CoursePage";
 import NotFoundPage from "../screens/NotFoundPage";
 

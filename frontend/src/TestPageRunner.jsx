@@ -5,6 +5,9 @@ import CheckboxGroup from './components/SyllabusComponents/CheckboxGroup';
 import Alert from './components/SyllabusComponents/Alert';
 import Information from './components/SyllabusComponents/Information';
 import SidebarLayout, { SidebarLink } from './components/SidebarLayout';
+import ContentCard from './components/SyllabusComponents/ContentCard';
+import ContentCardSet from './components/SyllabusComponents/ContentCardSet';
+import Image from './components/SyllabusComponents/Image';
 
 // Test page definitions
 const TEST_PAGES = {
@@ -88,6 +91,99 @@ const TEST_PAGES = {
           <Alert text="Remember to check your email regularly and respond to student inquiries within 24-48 hours." />
           <Information text="Consider using announcement tools in your LMS to communicate important updates." />
         </SidebarLayout> */}
+      </section>
+
+      <section style={{ marginBottom: '2rem', padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>
+        <h2>ContentCard & ContentCardSet Components</h2>
+        
+        <div style={{ marginBottom: '2rem', padding: '1rem', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
+          <h3>Single ContentCard Example</h3>
+          <p style={{ color: '#666', fontSize: '14px', marginBottom: '1rem' }}>
+            A standalone ContentCard with title, description, and optional right-value field
+          </p>
+          <ContentCard
+            titleLabel="Assignment Title:"
+            titleValue="Sample Assignment Title"
+            descriptionLabel="Assignment Description:"
+            descriptionValue="This is a detailed description of the assignment. Students will need to complete research, write a paper, and present their findings to the class."
+            rightLabel="Points:"
+            rightValue="25"
+            readOnly={true}
+          />
+        </div>
+
+        <div style={{ marginBottom: '2rem', padding: '1rem', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
+          <h3>ContentCardSet - Learning Outcomes</h3>
+          <p style={{ color: '#666', fontSize: '14px', marginBottom: '1rem' }}>
+            A set of ContentCards for managing learning outcomes (without right-value field)
+          </p>
+          <ContentCardSet
+            setTitle="Learning Outcomes"
+            titleLabel="Learning Outcome {index} Title:"
+            descriptionLabel="Learning Outcome {index} Description:"
+            initialCards={[
+              {
+                id: '1',
+                title: "Learning Outcome 1",
+                description: "Students will demonstrate understanding of key concepts in the subject matter.",
+                rightValue: ""
+              },
+              {
+                id: '2', 
+                title: "Learning Outcome 2",
+                description: "Students will apply critical thinking skills to analyze complex problems.",
+                rightValue: ""
+              }
+            ]}
+            minCards={2}
+            maxCards={8}
+            showRightValue={false}
+            readOnly={true}
+          />
+        </div>
+
+        <div style={{ marginBottom: '2rem', padding: '1rem', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
+          <h3>ContentCardSet - Assignments with Points</h3>
+          <p style={{ color: '#666', fontSize: '14px', marginBottom: '1rem' }}>
+            A set of ContentCards for managing assignments with point values
+          </p>
+          <ContentCardSet
+            setTitle="Assignments"
+            titleLabel="Assignment {index} Title:"
+            descriptionLabel="Assignment {index} Description:"
+            rightLabel="Points:"
+            initialCards={[
+              {
+                id: '1',
+                title: "Research Paper",
+                description: "A comprehensive research paper on a topic of your choice within the course subject matter.",
+                rightValue: "30"
+              },
+              {
+                id: '2',
+                title: "Final Exam",
+                description: "Comprehensive final examination covering all course materials.",
+                rightValue: "40"
+              }
+            ]}
+            minCards={1}
+            maxCards={10}
+            showRightValue={true}
+            readOnly={true}
+          />
+        </div>
+      </section>
+
+      <section style={{ marginBottom: '2rem', padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>
+        <h2>Image Component</h2>
+        <p style={{ color: '#666', fontSize: '14px', marginBottom: '1rem' }}>
+          Component for displaying images with alt text and styling
+        </p>
+        <Image 
+          src="/images/sample-image.jpg"
+          alt="Sample image description"
+          style={{ maxWidth: '300px', border: '1px solid #ddd', borderRadius: '4px' }}
+        />
       </section>
     </div>
   ),

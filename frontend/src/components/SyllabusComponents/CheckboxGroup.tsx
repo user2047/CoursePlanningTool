@@ -28,30 +28,47 @@ import React, { useState } from "react";
  *   horizontal={false}
  * />
  */
+
+interface CheckboxGroupProps {
+  id?: string;
+  label: string;
+  data?: string[];
+  horizontal?: boolean;
+  value?: string[];
+  onChange?: (values: string[]) => void;
+}
+
 function CheckboxGroup({
   id = "checkbox_group",
   label,
   data = ["M", "T", "W", "R", "F"],
   horizontal = true,
-}) {
+  value = [],
+  onChange,
+}: CheckboxGroupProps) {
   // Exclude 'Check All' from initial checked state
   const items = data.filter((d) => d !== "Check All");
   const hasCheckAll = data.includes("Check All");
-  const [checked, setChecked] = useState([]);
+  const [checked, setChecked] = useState<string[]>(value);
 
-  const handleChange = (value) => {
+  const handleChange = (value: string) => {
+    let newChecked: string[];
     if (value === "Check All") {
       if (checked.length === items.length) {
-        setChecked([]);
+        newChecked = [];
       } else {
-        setChecked(items);
+        newChecked = items;
       }
     } else {
       if (checked.includes(value)) {
-        setChecked(checked.filter((v) => v !== value));
+        newChecked = checked.filter((v) => v !== value);
       } else {
-        setChecked([...checked, value]);
+        newChecked = [...checked, value];
       }
+    }
+    setChecked(newChecked);
+    if (onChange) {
+      onChange(newChecked);
     }
   };
 

@@ -84,9 +84,10 @@ const CoursePage: React.FC = () => {
 
 
     // Guard: redirect if not logged in (after hooks)
-    if (!user) {
-        return <Navigate to="/" replace />;
-    }
+    // TEMPORARILY DISABLED FOR DEVELOPMENT
+    // if (!user) {
+    //     return <Navigate to="/" replace />;
+    // }
 
     return (
         <div>
